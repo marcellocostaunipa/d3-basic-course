@@ -1,0 +1,11 @@
+:root {
+    --background-color: #f4f4f4;
+}
+
+.graph {
+    background: var(--background-color);
+}
+
+.graph svg {
+    outline: 2px solid #ccc;
+}

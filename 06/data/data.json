@@ -1,0 +1,9 @@
+{
+    "fruits" : [
+        {"name": "Apples", "value": 30},
+        {"name": "Dates", "value": 60},
+        {"name": "Bananas", "value": 80},
+        {"name": "Cherries", "value": 45},
+        {"name": "Elderberries", "value": 20}
+    ]
+}

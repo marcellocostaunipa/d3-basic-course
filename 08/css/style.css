@@ -1,0 +1,54 @@
+:root {
+    --background-color: #f4f4f4;
+    --black: #1f1f1f;
+    --spacer: 1rem;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    font-size: 100%;
+}
+
+.bars {
+    background: var(--background-color);
+}
+
+.bars svg .labels {
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+.circles svg .labels {
+    font-size: 0.8rem;
+    text-align: center;
+    text-anchor: middle;
+}
+
+.circles svg .circle {
+    fill: #2b00ff;
+}
+
+.circles svg .max-circle {
+    fill: red;
+}
+
+.circles svg rect {
+    position: relative;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+    background: rgb(176, 196, 222);
+    border-radius: 8px;
+    pointer-events: none;
+}   
+
+.btn {
+    background: transparent;
+    -webkit-appearance: none;
+    border: 2px solid var(--black);
+    padding: calc(var(--spacer)/4) calc(var(--spacer)/2);
+}

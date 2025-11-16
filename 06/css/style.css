@@ -1,0 +1,45 @@
+:root {
+    --background-color: #f4f4f4;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    font-size: 100%;
+}
+
+.bars {
+    background: var(--background-color);
+}
+
+.bars svg .labels {
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+.circles svg .labels {
+    font-size: 0.8rem;
+    text-align: center;
+    text-anchor: middle;
+}
+
+.bars svg .bar {
+    fill: #2b00ff;
+}
+
+.bars svg .max-bar {
+    fill: red;
+}
+
+.bars svg rect {
+    position: relative;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+    background: rgb(176, 196, 222);
+    border-radius: 8px;
+    pointer-events: none;
+}   
