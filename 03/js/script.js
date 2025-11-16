@@ -23,7 +23,7 @@ const maxValue = d3.max(data, d => d.value); // trova il valore massimo nell'arr
 const yScale = d3.scaleLinear()
     .domain([0, maxValue])  // Input: 0 to max value
     .nice() // Round to nice numbers
-    .range([0, svgHeight]);  
+    .range([svgHeight, 0]);  
 
 console.log("Bar width: " + barWidth);
 console.log("Max value: " + maxValue);
@@ -41,9 +41,9 @@ barsGroup.selectAll("rect")
 .enter()
 .append("rect")
 .attr("x", (d, i) => i * barWidth + padding) // d è il valore (es: 10, 20, 30, ...) i è la posizione nell’array (0, 1, 2, ...)
-.attr("y", d => svgHeight -  yScale(d)) // posizione verticale del rettangolo
+.attr("y", d => yScale(d)) // posizione verticale del rettangolo
 .attr("width", 20)
-.attr("height", d => yScale(d)) // altezza del rettangolo
+.attr("height", d =>svgHeight - yScale(d)) // altezza del rettangolo
 .style("fill", "#2b00ff");
 
 const svgCircles = d3.select("#visualization .circles")

@@ -28,7 +28,7 @@ d3.json("data/data.json").then(function(data) {
       const yScale = d3.scaleLinear()
         .domain([0, maxValue])
         .nice()
-        .range([0, height]);
+        .range([height, 0]);
 
       const svg = d3.select("#visualization .bars")
         .append("svg")
@@ -43,9 +43,9 @@ d3.json("data/data.json").then(function(data) {
         .enter()
         .append("rect")
         .attr("x", d => xScale(d.name))
-        .attr("y", d => height - yScale(d.value))
+        .attr("y", d => yScale(d.value))
         .attr("width", xScale.bandwidth())
-        .attr("height", d => yScale(d.value))
+        .attr("height", d => height - yScale(d.value))
         .attr("class", d => d.value === maxValue ? "bar max-bar" : "bar");
 
       // X Axis
