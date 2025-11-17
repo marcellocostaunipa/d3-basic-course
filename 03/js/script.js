@@ -40,9 +40,9 @@ barsGroup.selectAll("rect")
 .data(data.map(d => d.value)) // Associa i dati ai rettangoli
 .enter()
 .append("rect")
-.attr("x", (d, i) => i * barWidth + padding) // d è il valore (es: 10, 20, 30, ...) i è la posizione nell’array (0, 1, 2, ...)
+.attr("x", (d, i) => i * barWidth) // d è il valore (es: 10, 20, 30, ...) i è la posizione nell’array (0, 1, 2, ...)
 .attr("y", d => yScale(d)) // posizione verticale del rettangolo
-.attr("width", 20)
+.attr("width", barWidth - 2 * padding) // larghezza del rettangolo
 .attr("height", d =>svgHeight - yScale(d)) // altezza del rettangolo
 .style("fill", "#2b00ff");
 
