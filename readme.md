@@ -48,16 +48,16 @@ The course is organized in lessons from simple to advanced topics:
 
 | Lesson | Topic |
 |--------|-------|
-| **[Lesson 1](./01-introduction/README.md)** | Basic selections and SVG text placement |
-| **[Lesson 2](./02-binding-1/README.md)** | Simple bar chart |
-| **[Lesson 3](./03-binding-2/README.md)** | Scales: bar height and circle radius |
-| **[Lesson 4](./04-axis/README.md)** | Bar chart with axes |
-| **[Lesson 5](./05-tooltips/README.md)** | Tooltips and interactivity |
-| **[Lesson 6](./06-json/README.md)** | Loading external JSON data |
-| **[Lesson 7](./07-interactivity/README.md)** | Sorting data and re-rendering charts |
-| **[Lesson 8](./08-svg-1/README.md)** | Sorting + circle charts |
-| **[Lesson 9](./09-svg-2/README.md)** | Custom shapes with SVG paths (stars) |
-| **[Lesson 10](./10-svg-3/README.md)**  | Multiple shape generators by category |
+| **[Lesson 1](/01-introduction/README.md)** | Basic selections and SVG text placement |
+| **[Lesson 2](/02-binding-1/README.md)** | Simple bar chart |
+| **[Lesson 3](/03-binding-2/README.md)** | Scales: bar height and circle radius |
+| **[Lesson 4](/04-axis/README.md)** | Bar chart with axes |
+| **[Lesson 5](/05-tooltips/README.md)** | Tooltips and interactivity |
+| **[Lesson 6](/06-json/README.md)** | Loading external JSON data |
+| **[Lesson 7](/07-interactivity/README.md)** | Sorting data and re-rendering charts |
+| **[Lesson 8](/08-svg-1/README.md)** | Sorting + circle charts |
+| **[Lesson 9](/09-svg-2/README.md)** | Custom shapes with SVG paths (stars) |
+| **[Lesson 10](/10-svg-3/README.md)**  | Multiple shape generators by category |
 | *(More lessons will be added)* | |
 
 Each lesson includes:
