@@ -1,0 +1,15 @@
+# File di sistema macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+*.swp
+*.swo
+*~
+
+# Editor
+.vscode/
+
+# File locali
+.env
+.env.local
+config.local.js
