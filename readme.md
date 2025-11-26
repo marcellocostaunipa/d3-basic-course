@@ -48,16 +48,16 @@ The course is organized in lessons from simple to advanced topics:
 
 | Lesson | Topic |
 |--------|-------|
-| **Lesson 1** | Basic selections and SVG text placement |
-| **Lesson 2** | Simple bar chart |
-| **Lesson 3** | Scales: bar height and circle radius |
-| **Lesson 4** | Bar chart with axes |
-| **Lesson 5** | Tooltips and interactivity |
-| **Lesson 6** | Loading external JSON data |
-| **Lesson 7** | Sorting data and re-rendering charts |
-| **Lesson 8** | Sorting + circle charts |
-| **Lesson 9** | Custom shapes with SVG paths (stars) |
-| **Lesson 10** | Multiple shape generators by category |
+| **[Lesson 1](01/readme.md)** | Basic selections and SVG text placement |
+| **[Lesson 2](02/readme.md)** | Simple bar chart |
+| **[Lesson 3](03/readme.md)** | Scales: bar height and circle radius |
+| **[Lesson 4](04/readme.md)** | Bar chart with axes |
+| **[Lesson 5](05/readme.md)** | Tooltips and interactivity |
+| **[Lesson 6](06/readme.md)** | Loading external JSON data |
+| **[Lesson 7](07/readme.md)** | Sorting data and re-rendering charts |
+| **[Lesson 8](08/readme.md)** | Sorting + circle charts |
+| **[Lesson 9](09/readme.md)** | Custom shapes with SVG paths (stars) |
+| **[Lesson 10](10/readme.md)**  | Multiple shape generators by category |
 | *(More lessons will be added)* | |
 
 Each lesson includes:
