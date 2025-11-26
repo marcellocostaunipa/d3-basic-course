@@ -30,3 +30,8 @@ body {
 .bars svg .max-bar {
     fill: red;
 }
+
+.x-axis .tick text {
+  font-size: 7px;
+  fill: #333;
+}

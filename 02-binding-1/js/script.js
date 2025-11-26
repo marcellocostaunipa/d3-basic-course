@@ -6,6 +6,28 @@ if(d3.version) {
 }
 
 const numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120];
+/*
+const svgWidth = 400;
+const svgHeight = 200;
+
+const barWidth = svgWidth / numbers.length; 
+
+const svg = d3.select("#visualization .graph")
+.append("svg")
+.attr("width", svgWidth)
+.attr("height", svgHeight);
+
+const barsGroup = svg.append("g")
+.attr("class", "bars")
+.selectAll("rect")
+.data(numbers)
+.enter()
+.append("rect")
+.attr("x", (d, i) => i * barWidth)
+.attr("y", d => svgHeight - d)
+.attr("width", barWidth)
+.attr("height", d => d)
+*/
 
 const svgWidth = 400;
 const svgHeight = 200;

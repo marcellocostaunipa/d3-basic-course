@@ -8,9 +8,13 @@ if(d3.version) {
 const data = [
     {name: "Apples", value: 30},
     {name: "Dates", value: 60},
-    {name: "Bananas", value: 80},
-    {name: "Cherries", value: 45},
-    {name: "Elderberries", value: 20}
+    {name: "Bananas", value: 30},
+    {name: "Cherries", value: 145},
+    {name: "Elderberries", value: 20},
+    {name: "Figs", value: 75},
+    {name: "Grapes", value: 90},
+    {name: "Honeydew", value: 50},
+    {name: "Kiwis", value: 110}
 ];
 
 const svgWidth = 400;
@@ -25,7 +29,7 @@ const maxValue = d3.max(data, d => d.value);
 const xScale = d3.scaleBand()
   .domain(data.map(d => d.name))
   .range([0, width])
-  .padding(0.1);
+  .padding(0.2);
 
 const yScale = d3.scaleLinear()
   .domain([0, maxValue])
@@ -48,11 +52,12 @@ barGroup.selectAll("rect")
   .attr("y", d => yScale(d.value))
   .attr("width", xScale.bandwidth())
   .attr("height", d => height -  yScale(d.value))
-  .attr("class", d => d.value === maxValue ? "bar max-bar" : "bar");
+  .attr("class", d => d.value === maxValue ? "bar max-bar" : "bar"); //ternary operator to assign class
 
 // X Axis
 barGroup.append("g")
   .attr("transform", "translate(0," + height + ")")
+  .attr("class", "x-axis")
   .call(d3.axisBottom(xScale));
 
 // Y Axis

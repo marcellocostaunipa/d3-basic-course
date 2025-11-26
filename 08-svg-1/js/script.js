@@ -11,7 +11,7 @@ d3.json("data/data.json").then(function(data) {
     const fruits = data.fruits;
     const svgWidth = 400;
     const svgHeight = 200;
-    const margin = { top: 20, right: 20, bottom: 20, left: 40 }; // left aumentato per le etichette y
+    const margin = { top: 20, right: 20, bottom: 20, left: 20 }; 
     const width = svgWidth - margin.left - margin.right;
     const height = svgHeight - margin.top - margin.bottom;
     const maxValue = d3.max(data.fruits, d => d.value);
@@ -28,7 +28,7 @@ d3.json("data/data.json").then(function(data) {
       const rScale = d3.scaleLinear()
         .domain([0, maxValue])
         .nice()
-        .range([5, svgHeight/7]);
+        .range([5, height/7]);
 
       const svg = d3.select("#visualization .circles")
         .append("svg")
@@ -43,7 +43,7 @@ d3.json("data/data.json").then(function(data) {
         .enter()
         .append("circle")
         .attr("cx", d => xScale(d.name))
-        .attr("cy", svgHeight/2)
+        .attr("cy", height/2)
         .attr("r", d => rScale(d.value))
         .attr("class", d => d.value === maxValue ? "circle max-circle" : "circle");
 

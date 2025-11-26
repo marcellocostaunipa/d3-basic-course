@@ -51,6 +51,7 @@ barGroup.selectAll("rect")
 // X Axis
 barGroup.append("g")
   .attr("transform", `translate(0,${height})`)
+  .attr('class', 'x-axis')
   .call(d3.axisBottom(xScale));
 
 // Y Axis

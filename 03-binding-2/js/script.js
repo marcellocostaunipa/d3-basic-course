@@ -6,11 +6,11 @@ if(d3.version) {
 }
 
 const data = [
-    { name: "Apples", value: 30 },
-    { name: "Bananas", value: 80 },
-    { name: "Cherries", value: 45 },
+    { name: "Apples", value: 100, },
+    { name: "Bananas", value: 10 },
+    { name: "Cherries", value: 645 },
     { name: "Dates", value: 60 },
-    { name: "Elderberries", value: 20 }
+    { name: "Elderberries", value: 10 }
 ];
 
 const svgWidth = 400;
@@ -43,7 +43,7 @@ barsGroup.selectAll("rect")
 .attr("x", (d, i) => i * barWidth) // d è il valore (es: 10, 20, 30, ...) i è la posizione nell’array (0, 1, 2, ...)
 .attr("y", d => yScale(d)) // posizione verticale del rettangolo
 .attr("width", barWidth - 2 * padding) // larghezza del rettangolo
-.attr("height", d =>svgHeight - yScale(d)) // altezza del rettangolo
+.attr("height", d => svgHeight - yScale(d)) // altezza del rettangolo
 .style("fill", "#2b00ff");
 
 const svgCircles = d3.select("#visualization .circles")
@@ -62,7 +62,7 @@ circlesGroup.selectAll("circle")
 .data(data.map(d => d.value))
 .enter()
 .append("circle")
-.attr("cx", (d, i) => margin.left + i * barWidth + barWidth/8) // posizione orizzontale del cerchio
+.attr("cx", (d, i) => margin.left + i * barWidth) // posizione orizzontale del cerchio
 .attr("cy", svgHeight/2) // posizione verticale del cerchio
 .attr("r", d => rScale(d)) // raggio del cerchio
 .style("fill", "#ff0000");

@@ -16,7 +16,7 @@ const data = [
 // SVG & SCALES
 // ---------------------------
 const svg = d3
-    .select("#visualization .bars")
+    .select("#visualization .shapes")
     .append("svg")
     .attr("width", svgWidth)
     .attr("height", svgHeight);
@@ -33,26 +33,37 @@ const yScale = d3.scaleLinear()
 // ---------------------------
 // STAR SHAPE GENERATOR
 // ---------------------------
-function starPath(d, i) {
-  const starWidth = xScale.bandwidth();
-  const centerX = xScale(d.name) + starWidth / 2;
-  const topY    = yScale(d.value);
-  const bottomY = yScale(0);
-  const centerY = topY + (bottomY - topY) / 2;
+function starPath(d) {
+  const barWidth = xScale.bandwidth();
+  const centerX  = xScale(d.name) + barWidth / 2;
+  const topY     = yScale(d.value);
+  const bottomY  = yScale(0);
 
-  // Spoke length responds to bar height
+  // centro verticale della stella
+  const centerY  = topY + (bottomY - topY) / 2;
+
+  // spoke length proportional to bar height
   const valueHeight = bottomY - topY;
   const spokeLength = valueHeight * 0.25;
 
+  // ----
+  // Disegno una stella centrata in (0,0)
+  // ----
   let path = "";
   for (let angle = 0; angle < 360; angle += 60) {
     const rad = angle * Math.PI / 180;
-    const x2 = centerX + Math.cos(rad) * spokeLength;
-    const y2 = centerY + Math.sin(rad) * spokeLength;
-    path += `M${centerX},${centerY} L${x2},${y2} `;
+    const x2 = Math.cos(rad) * spokeLength;
+    const y2 = Math.sin(rad) * spokeLength;
+    path += `M0,0 L${x2},${y2} `;
   }
-  return path;
+
+  // Ritorno sia path sia transform
+  return {
+    d: path,
+    transform: `translate(${centerX}, ${centerY})`
+  };
 }
+
 
 // ---------------------------
 // DRAW STAR “GROUPS”
@@ -63,7 +74,12 @@ starsGroup.selectAll("path")
   .data(data)
   .enter()
   .append("path")
-  .attr("d", (d, i) => starPath(d, i))
-  .attr("stroke", "#2b00ff")
-  .attr("stroke-width", 3)
-  .attr("fill", "none");
+  .each(function(d) {
+    const star = starPath(d);
+    d3.select(this)
+      .attr("d", star.d)
+      .attr("transform", star.transform);
+  })
+  .attr("fill", "none")
+  .attr("stroke", "#0033cc")
+  .attr("stroke-width", 3);

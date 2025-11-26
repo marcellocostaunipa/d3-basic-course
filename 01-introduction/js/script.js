@@ -8,14 +8,14 @@ if(d3.version) {
 const numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
 const svg = d3.select("#visualization .graph")
-  .append("svg")
-  .attr("width", 500)
-  .attr("height", 300);
+.append("svg")
+.attr("width", 500)
+.attr("height", 200)
 
 svg.selectAll("text")
-  .data(numbers)
-  .enter()
-  .append("text")
-  .text(d => d)
-  .attr("x", (d, i) => i * 50)
-  .attr("y", 50);  // needed so text is visible
+.data(numbers)
+.enter()
+.append("text")
+.text(d => d)
+.attr("x", (d, i) => i * 50)
+.attr("y", 50)
