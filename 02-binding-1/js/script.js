@@ -6,28 +6,6 @@ if(d3.version) {
 }
 
 const numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120];
-/*
-const svgWidth = 400;
-const svgHeight = 200;
-
-const barWidth = svgWidth / numbers.length; 
-
-const svg = d3.select("#visualization .graph")
-.append("svg")
-.attr("width", svgWidth)
-.attr("height", svgHeight);
-
-const barsGroup = svg.append("g")
-.attr("class", "bars")
-.selectAll("rect")
-.data(numbers)
-.enter()
-.append("rect")
-.attr("x", (d, i) => i * barWidth)
-.attr("y", d => svgHeight - d)
-.attr("width", barWidth)
-.attr("height", d => d)
-*/
 
 const svgWidth = 400;
 const svgHeight = 200;
@@ -39,12 +17,12 @@ const margin = {
   left: 20 
 };
 
-const padding = 12; // spazio tra le barre
+const padding = 12; // space between bars
 
-// larghezza del rettangolo fissa
+// fixed width for each bar
 //const barWidth = 25; 
 
-// larghezza del rettangolo in base alla larghezza del SVG e al numero di elementi
+// bar width calculated based on svg width, margins, padding and number of data points
 const barWidth = (svgWidth - margin.left - margin.right - padding * (numbers.length - 1)) / numbers.length; 
 
 console.log("Bar width: " + barWidth);
@@ -56,7 +34,7 @@ const svg = d3.select("#visualization .graph")
 
 const barsGroup = svg.append("g")
   .attr("class", "bars")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")") // applica i margini
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")") // apply margins
 
   .selectAll("rect")
   .data(numbers)
