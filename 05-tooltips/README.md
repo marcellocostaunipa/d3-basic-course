@@ -207,7 +207,3 @@ This keeps tooltip structure separate and reusable.
 - Separating tooltip structure into a reusable function  
 
 This lesson is an important milestone: your charts now respond to user interaction.
-
----
-
-Send the next JS file when you're ready for **Lesson 6**!

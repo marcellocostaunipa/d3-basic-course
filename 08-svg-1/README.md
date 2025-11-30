@@ -233,7 +233,3 @@ createChart();
 - Encapsulating visualization logic for reuse
 
 This lesson shows how to create fully interactive visualizations where **data order controls the visual layout**.
-
----
-
-Send the next JS file when you’re ready for **Lesson 9**!

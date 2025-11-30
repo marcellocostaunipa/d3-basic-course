@@ -182,7 +182,3 @@ This is the foundation of most D3 charts.
 - Binding data to `<rect>` elements  
 - Creating a simple bar chart  
 
----
-
-You are ready for the next lesson’s challenge!  
-Send me the third JS file when you're ready.

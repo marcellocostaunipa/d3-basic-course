@@ -186,7 +186,3 @@ This provides labels for each category.
 - How D3’s data binding works with custom paths  
 
 This lesson gives you the skills to create **data-driven custom icons**, glyphs, and visual encodings—useful for advanced dashboards and creative visualizations.
-
----
-
-Send the next JS file when you're ready for **Lesson 11**!

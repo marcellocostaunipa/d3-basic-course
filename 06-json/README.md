@@ -246,7 +246,3 @@ This makes tooltip content cleaner and easier to maintain.
 - How to integrate data loading + chart drawing in a single pipeline  
 
 This lesson prepares you for working with real‑world datasets.
-
----
-
-Send me the next JS file when you're ready for **Lesson 7**!

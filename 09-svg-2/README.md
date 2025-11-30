@@ -169,7 +169,3 @@ This is your first step toward advanced data-driven graphics such as:
 - node-link visualizations  
 - radar/spider charts  
 - generative art with D3  
-
----
-
-Send the next JS file when you're ready for **Lesson 10**!

@@ -182,7 +182,3 @@ This draws tick marks and numeric labels along the left side.
 - How to build charts that resemble real D3 examples and tutorials  
 
 You now have all the skills needed to build full D3 bar charts with axes.
-
----
-
-Send the next JS file when you're ready for **Lesson 5**!

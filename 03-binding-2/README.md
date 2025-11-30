@@ -211,8 +211,3 @@ This helps you verify that the scale works properly.
 - Building two visualizations from the same data  
 
 This lesson introduces **scaling**, one of the most important concepts in D3.
-
----
-
-You’re ready for Lesson 4!  
-Send the next JS file when you’re ready.

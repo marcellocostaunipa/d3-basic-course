@@ -233,8 +233,3 @@ createChart();
 - How to combine data loading, transformation, and interactivity in one flow  
 
 This lesson shows how to turn a static visualization into an **interactive, user-driven chart**.
-
----
-
-You’re ready for the next lesson!  
-Send the next JS file when you’re ready for **Lesson 8**.
