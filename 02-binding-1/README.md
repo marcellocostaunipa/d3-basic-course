@@ -140,9 +140,60 @@ barsGroup
 
 Each bar is placed by multiplying the index by the bar width + padding.
 
+For for example, assuming:
+
+- svgWidth = 400
+- margin.left = margin.right = 20
+- padding = 12
+- numbers.length = 12
+- barWidth = (400 - 20 - 20 - 12*(12-1)) / 12 = 19
+- barWidth + padding = 19 + 12 = 31
+
+Here is a complete table with each substitution:
+
+| i (index) | d (value) | x = i * (barWidth + padding) | x (px) |
+|-----------|-----------:|--------------------------------------:|-------:|
+| 0         | 10        | 0 * 31                               | 0      |
+| 1         | 20        | 1 * 31                               | 31     |
+| 2         | 30        | 2 * 31                               | 62     |
+| 3         | 40        | 3 * 31                               | 93     |
+| 4         | 50        | 4 * 31                               | 124    |
+| 5         | 60        | 5 * 31                               | 155    |
+| 6         | 70        | 6 * 31                               | 186    |
+| 7         | 80        | 7 * 31                               | 217    |
+| 8         | 90        | 8 * 31                               | 248    |
+| 9         | 100       | 9 * 31                               | 279    |
+| 10        | 110       | 10 * 31                              | 310    |
+| 11        | 120       | 11 * 31                              | 341    |
+
+
 ```js
 .attr("y", d => svgHeight - margin.bottom - margin.top - d)
 ```
+
+Assuming: 
+- svgHeight = 200, 
+- margin.top = 20, 
+- margin.bottom = 20
+- Free height: svgHeight - margin.top - margin.bottom = 160
+- Equation: y = 160 - d
+
+Here is a complete table with each substitution:
+
+| i (index) | d (value) | Calcolo y = 160 - d | y (px) |
+|-----------|----------:|--------------------:|-------:|
+| 0         | 10        | 160 - 10            | 150    |
+| 1         | 20        | 160 - 20            | 140    |
+| 2         | 30        | 160 - 30            | 130    |
+| 3         | 40        | 160 - 40            | 120    |
+| 4         | 50        | 160 - 50            | 110    |
+| 5         | 60        | 160 - 60            | 100    |
+| 6         | 70        | 160 - 70            |  90    |
+| 7         | 80        | 160 - 80            |  80    |
+| 8         | 90        | 160 - 90            |  70    |
+| 9         | 100       | 160 - 100           |  60    |
+| 10        | 110       | 160 - 110           |  50    |
+| 11        | 120       | 160 - 120           |  40    |
 
 Bars grow upward, so their `y` value moves up as `d` increases.
 
