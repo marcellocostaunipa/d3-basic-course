@@ -180,7 +180,7 @@ Assuming:
 
 Here is a complete table with each substitution:
 
-| i (index) | d (value) | Calcolo y = 160 - d | y (px) |
+| i (index) | d (value) | y = 160 - d | y (px) |
 |-----------|----------:|--------------------:|-------:|
 | 0         | 10        | 160 - 10            | 150    |
 | 1         | 20        | 160 - 20            | 140    |

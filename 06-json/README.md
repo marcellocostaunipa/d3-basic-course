@@ -99,7 +99,10 @@ Maximum value for scaling:
 ```js
 const maxValue = d3.max(fruits, d => d.value);
 ```
+<code>fruits</code> is the array holding your data objects — each object has a numeric property <code>value</code>.
 
+- scans the fruits array, uses the accessor <code>d => d.value</code>, and returns the largest numeric value.
+- If <code>fruits</code> is empty or undefined, result can be undefined.
 ---
 
 ## 5. Scales
