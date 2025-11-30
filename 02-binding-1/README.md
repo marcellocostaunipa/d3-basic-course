@@ -180,6 +180,31 @@ Bars grow upward, so their `y` value moves up as `d` increases.
 
 The height reflects the numeric value.
 
+Assuming: 
+- svgHeight = 200, 
+- margin.top = 20, 
+- margin.bottom = 20
+- Free height: svgHeight - margin.top - margin.bottom = 160
+- Equation: y = 160 - d
+
+Here is a complete table with each substitution:
+
+| i (index) | d (value) | y = 160 - d | y (px) |
+|-----------|----------:|--------------------:|-------:|
+| 0         | 10        | 160 - 10            | 150    |
+| 1         | 20        | 160 - 20            | 140    |
+| 2         | 30        | 160 - 30            | 130    |
+| 3         | 40        | 160 - 40            | 120    |
+| 4         | 50        | 160 - 50            | 110    |
+| 5         | 60        | 160 - 60            | 100    |
+| 6         | 70        | 160 - 70            |  90    |
+| 7         | 80        | 160 - 80            |  80    |
+| 8         | 90        | 160 - 90            |  70    |
+| 9         | 100       | 160 - 100           |  60    |
+| 10        | 110       | 160 - 110           |  50    |
+| 11        | 120       | 160 - 120           |  40    |
+
+
 ```js
 .style("fill", "#2b00ff");
 ```
