@@ -165,6 +165,3 @@ This lesson is a crucial step toward using:
 - **data-driven palettes**,
 - **theming for dashboard visualizations**.
 
----
-
-Send the next JS file whenever you're ready for **Lesson 13**!
