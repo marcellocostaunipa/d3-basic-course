@@ -1,0 +1,63 @@
+:root{
+  --border: rgba(0,0,0,.12);
+  --text: rgba(0,0,0,.86);
+  --muted: rgba(0,0,0,.6);
+  --bg: #ffffff;
+}
+*{ box-sizing: border-box; }
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+.page{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 16px;
+}
+.header{
+  padding: 8px 0 4px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+.header h1{ margin: 0 0 4px; font-size: 20px; }
+.header p{ margin: 0 0 8px; color: var(--muted); }
+.controls{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0 14px;
+}
+.control{
+  display: inline-flex;
+  gap: 8px;
+  align-items: baseline;
+}
+#year-slider{ flex: 1; }
+.viz{
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  overflow: hidden;
+}
+.tooltip{
+  position: absolute;
+  pointer-events: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.95);
+  color: var(--text);
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  transform: translate(-50%, -110%);
+  width: max-content;
+  max-width: 260px;
+}
+.tooltip .title{ font-weight: 700; margin-bottom: 4px; }
+.tooltip .row{
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  color: var(--muted);
+}

@@ -1,0 +1,37 @@
+{
+  "properties": [
+    {
+      "id": "step-1",
+      "label": "Shell Outline",
+      "description": "The overall contour of the egg, captured as a smooth, asymmetric shape.",
+      "strokeWidth": 3,
+      "stroke": "#222222",
+      "opacity": 1.0
+    },
+    {
+      "id": "step-2",
+      "label": "Surface Texture",
+      "description": "Small speckles distributed across the shell surface hint at pigmentation and material irregularities.",
+      "strokeWidth": 1,
+      "stroke": "#888888",
+      "opacity": 0.9,
+      "density": 26
+    },
+    {
+      "id": "step-3",
+      "label": "Yolk Zone",
+      "description": "An inner region that suggests where the yolk would sit inside the egg.",
+      "strokeWidth": 2,
+      "stroke": "#d38b3a",
+      "opacity": 0.85
+    },
+    {
+      "id": "step-4",
+      "label": "Shell Thickness",
+      "description": "An inner band outlining an idealized thickness of the shell.",
+      "strokeWidth": 1.5,
+      "stroke": "#555555",
+      "opacity": 0.7
+    }
+  ]
+}

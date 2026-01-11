@@ -1,0 +1,285 @@
+/* ------------------------------
+   GLOBAL VARIABLES
+------------------------------- */
+
+:root {
+  /* layout */
+  --layout-width-max: 40rem;
+  --layout-width-viz-max: 700px;
+
+  /* spacing */
+  --space-0: 0;
+  --space-1: 1rem;
+  --space-2: 1.5rem;
+  --space-3: 2rem;
+  --space-4: 3rem;
+
+  /* typography */
+  --font-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-size-body: 1rem;
+  --font-size-h1: 1.8rem;
+  --font-size-h2: 1.2rem;
+  --font-size-small: 0.75rem;
+  --font-size-tooltip: 0.8rem;
+  --font-size-tooltip-strong: 0.85rem;
+
+  /* line heights */
+  --line-body: 1.45;
+  --line-lead: 1.5;
+  --line-tooltip: 1.4;
+
+  /* color palette */
+  --color-bg-main: #f5f5f5;
+  --color-bg-white: #ffffff;
+  --color-bg-step: #fafafa;
+  --color-bg-highlight: #fffdf5;
+
+  --color-text-main: #222;
+  --color-text-lead: #555;
+  --color-text-step: #444;
+  --color-text-index: #999;
+  --color-text-muted: #888;
+  --color-tooltip-text: #ffffff;
+
+  --color-border: #ddd;
+  --color-tooltip-bg: rgba(0, 0, 0, 0.85);
+
+  /* tooltip */
+  --tooltip-max-width: 220px;
+  --tooltip-radius: 0.5rem;
+  --tooltip-offset-x: 0;   /* JS adds actual offset */
+  --tooltip-offset-y: 0;
+
+  /* SVG panel */
+  --viz-aspect-w: 2;
+  --viz-aspect-h: 3;
+
+  /* transitions & shadows */
+  --transition-speed: 0.2s;
+  --shadow-active: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  /* breakpoints */
+  --break-small: 900px;
+}
+
+/* ------------------------------
+   BASE STYLES
+------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: var(--space-0);
+  font-family: var(--font-base);
+  font-size: var(--font-size-body);
+  background: var(--color-bg-main);
+  color: var(--color-text-main);
+}
+
+main {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ------------------------------
+   LEFT: SCROLL NARRATIVE
+------------------------------- */
+
+.scrolly {
+  flex: 1;
+  max-width: var(--layout-width-max);
+  padding: var(--space-0);
+  background: var(--color-bg-white);
+
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+}
+
+/* Inner wrapper for title + steps */
+.scrolly-inner {
+  padding: var(--space-3) var(--space-4);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-align: start;
+}
+
+/* Heading area */
+.scrolly h1 {
+  margin-top: var(--space-0);
+  margin-bottom: var(--space-1);
+  font-size: var(--font-size-h1);
+}
+
+.scrolly p.lead {
+  margin-top: var(--space-0);
+  margin-bottom: var(--space-3);
+  color: var(--color-text-lead);
+  line-height: var(--line-lead);
+}
+
+/* ------------------------------
+   STEP CARDS
+------------------------------- */
+
+.step {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  padding: var(--space-3) var(--space-4) var(--space-3) var(--space-4);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background: var(--color-bg-step);
+
+  transition:
+    background var(--transition-speed) ease,
+    border-color var(--transition-speed) ease,
+    box-shadow var(--transition-speed) ease,
+    transform var(--transition-speed) ease;
+}
+
+.step:first-of-type {
+  border-top: none;
+}
+
+.step:last-of-type {
+  border-bottom: none;
+}
+
+.step h2 {
+  margin-top: var(--space-0);
+  margin-bottom: calc(var(--space-1) / 2);
+  font-size: var(--font-size-h2);
+}
+
+.step p {
+  margin: var(--space-0);
+  line-height: var(--line-body);
+  color: var(--color-text-step);
+}
+
+.step-index {
+  font-size: var(--font-size-small);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-index);
+  margin-bottom: 0.35rem;
+}
+
+.step.active {
+  background: var(--color-bg-highlight);
+  transform: translateY(-3px);
+}
+
+/* ------------------------------
+   RIGHT: SVG VISUALIZATION
+------------------------------- */
+
+.viz-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+#svg-viz {
+  width: 100%;
+  max-width: var(--layout-width-viz-max);
+  aspect-ratio: var(--viz-aspect-w) / var(--viz-aspect-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2);
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Subtle label */
+.viz-label {
+  position: absolute;
+  bottom: var(--space-2);
+  right: var(--space-4);
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* ------------------------------
+   RESPONSIVE
+------------------------------- */
+
+@media (max-width: var(--break-small)) {
+  main {
+    flex-direction: column;
+  }
+
+  .scrolly {
+    height: 50vh;
+    max-width: 100%;
+    border-bottom: 1px solid var(--color-border);
+    scroll-snap-type: y mandatory;
+  }
+
+  .step {
+    min-height: 50vh;
+    padding: var(--space-2) 1.75rem;
+  }
+
+  .viz-panel {
+    position: static;
+    height: 50vh;
+  }
+
+  .viz-label {
+    right: var(--space-2);
+    bottom: var(--space-2);
+  }
+}
+
+/* ------------------------------
+   TOOLTIP
+------------------------------- */
+
+.svg-tooltip {
+  position: fixed;
+  z-index: 9999;
+  max-width: var(--tooltip-max-width);
+  padding: 0.6rem 0.8rem;
+  background: var(--color-tooltip-bg);
+  color: var(--color-tooltip-text);
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-tooltip);
+  border-radius: var(--tooltip-radius);
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  transition: opacity var(--transition-speed) ease;
+}
+
+.svg-tooltip strong {
+  font-size: var(--font-size-tooltip-strong);
+}
+
+.svg-tooltip .tooltip-desc {
+  opacity: 0.9;
+}
+
+/* Anchors inside SVG used for tooltip geometry */
+.tooltip-anchor {
+  opacity: 0.4;
+  fill: red;
+  pointer-events: none;
+}

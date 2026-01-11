@@ -1,0 +1,33 @@
+<svg width="100%" height="100%" viewBox="0 0 400 400" version="1.1"
+    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    xml:space="preserve" xmlns:serif="http://www.serif.com/"
+    style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    
+    <g id="step-1">
+    <ellipse cx="200" cy="204" rx="107.678" ry="139.124" style="fill:#fff;stroke:#000;stroke-width:8.33px;"/>
+    <!-- Tooltip anchor -->
+    <circle class="tooltip-anchor" cx="200" cy="60" r="3" opacity="0"/>
+</g>
+
+<g id="step-2">
+    <circle cx="166.248" cy="140.307" r="7"/>
+    <circle cx="194.695" cy="188.432" r="7"/>
+    <circle cx="266.922" cy="206.955" r="6"/>
+    <circle cx="144.176" cy="288.527" r="6"/>
+    <!-- Tooltip anchor -->
+    <circle class="tooltip-anchor" cx="260" cy="140" r="3" opacity="1"/>
+</g>
+
+<g id="step-3">
+    <circle cx="200" cy="207.917" r="74.61"/>
+    <!-- Tooltip anchor -->
+    <circle class="tooltip-anchor" cx="255" cy="235" r="3" opacity="1"/>
+</g>
+
+<g id="step-4">
+    <ellipse cx="200" cy="204.5" rx="98.003" ry="128.624" style="fill:none;stroke:#000;stroke-width:2.08px;"/>
+    <!-- Tooltip anchor -->
+    <circle class="tooltip-anchor" cx="200" cy="330" r="3" opacity="1"/>
+</g>
+
+</svg>

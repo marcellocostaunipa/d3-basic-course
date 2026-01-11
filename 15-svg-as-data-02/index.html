@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>D3 SVG Features — Scroll Visualization</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- D3.js from CDN -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <main>
+    <!-- Left: narrative / scroll steps -->
+    <section class="scrolly">
+        <div class="scrolly-inner">
+            <h1>Reading an SVG as Data</h1>
+            <p class="lead">Scroll to reveal one SVG feature at a time.</p>
+        </div>
+
+      <!-- Steps will be generated from JSON into this container -->
+      <div id="steps"></div>
+    </section>
+
+    <!-- Right: SVG visualization -->
+    <section class="viz-panel">
+      <div id="svg-viz" aria-label="Scroll visualization area"></div>
+      <div class="viz-label">Scroll Visualization · D3.js</div>
+    </section>
+  </main>
+</body>
+<!-- Main script -->
+  <script src="js/main.js" defer></script>
+</html>
