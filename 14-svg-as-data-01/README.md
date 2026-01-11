@@ -220,7 +220,3 @@ Then open the local URL (e.g. `http://127.0.0.1:8080/lesson-14-svg-as-data/`).
 - How to connect scroll position to visualization state
 - How to build a scrollytelling layout with a sticky visualization panel
 
----
-
-Next: send the files for the **second SVG-as-Data lesson**, and we’ll create the next `readme.md`.
-
