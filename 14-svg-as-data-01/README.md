@@ -30,20 +30,21 @@ This is a common pattern in *scrollytelling* projects: a narrative column contro
 
 > The key requirement: the SVG must contain groups with `id` attributes that match the JSON.
 
-### Final Folder Structure
+---
+
+## Expected folder structure
 
 ```
-project/
-│
-├── index.html
-├── css/
-│   └── style.css
-├── js/
-│   └── main.js
-├── data/
-│   └── egg-data.json
-└── svg/
-    └── egg.svg
+lesson-14-svg-as-data/
+  index.html
+  css/
+    style.css
+  js/
+    main.js
+  data/
+    egg-data.json
+  svg/
+    egg.svg
 ```
 
 ---
@@ -96,6 +97,31 @@ When you scroll, the JS sets all groups to low opacity, then highlights the curr
 - `data-index` stores the step index
 
 This is “data-driven UI” (not just data-driven SVG).
+
+### Why this pattern is used in “newsroom scrollytelling”
+
+The idea “**narrative as data**” (your `egg-data.json`) + “**visual state as data**” (your SVG `<g id="...">` layers) is the same architecture used in many professional scrollytelling pieces (e.g., data journalism and interactive essays):
+
+- The **story** is stored as structured content (JSON/CSV/CMS): titles, paragraphs, step order, annotations.
+- The **visualization** is a state machine: each step changes opacity, highlights, positions, or layers.
+- The **scroll position** (IntersectionObserver / scroll events) acts like a controller that decides *which state is active*.
+
+This approach is popular because it is:
+- **Maintainable**: editors can change text and ordering in JSON without touching SVG code.
+- **Scalable**: you can add/remove steps by editing data, not rewriting HTML.
+- **Reusable**: the same step data can drive different visual treatments (opacity, color, zoom, labels).
+
+### What `props` really represents
+
+In `buildSteps(props)`, the `props` parameter is simply the **dataset of narrative steps** (an array of objects from `data.properties`).  
+Each object becomes one scroll “card” in the left column, and later it also becomes the **instruction** for which SVG group to highlight (via `prop.id`).
+
+In other words:
+
+- `props` = **narrative dataset**
+- HTML steps = **data-driven UI**
+- SVG groups = **data-driven layers**
+- scrolling = **the interaction that binds them together**
 
 ### B) Load the SVG as an external document
 
