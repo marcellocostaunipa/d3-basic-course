@@ -173,6 +173,33 @@ svgRoot.select(`#${id}`)
   .style("opacity", prop.opacity ?? 1);
 ```
 
+#### The opacity fallback line (why `prop.opacity != null ? prop.opacity : 1`)
+
+This line:
+
+```js
+.style("opacity", prop.opacity != null ? prop.opacity : 1);
+```
+
+is a **defensive default** for the active SVG layer.
+
+- `prop.opacity` comes from your JSON step (e.g. `"opacity": 0.7`).
+- Sometimes a step might **not** define `opacity` at all (missing property), or it might be explicitly `null`.
+
+So the ternary operator checks:
+
+- **If** `prop.opacity != null` (meaning it is **not** `null` and **not** `undefined`)  
+  → use the value from JSON (e.g. `0.85`).
+- **Otherwise**  
+  → fall back to `1` (fully visible), so the layer still appears.
+
+Why `!= null` and not `!== null`?  
+Because `x != null` is a common JavaScript shorthand that returns `false` for both `null` *and* `undefined`, covering the two “missing value” cases with one check.
+
+> Note: if you used `prop.opacity || 1`, then an intended value like `0` would be replaced by `1` (because `0` is falsy).  
+> The `!= null` check avoids that and preserves valid numeric values, including `0`.
+
+
 This is the core of **SVG as Data**:
 
 - the SVG’s structure (`<g id="...">`) is your “database”
@@ -202,6 +229,106 @@ So your SVG must include:
 If the IDs don’t match, nothing will be highlighted (you’ll only see the faint baseline).
 
 ---
+
+### The `setActiveStep()` function in detail
+
+```js
+function setActiveStep(activeIndex) {
+  if (!svgRoot) return;
+
+  // Highlight active step card
+  document.querySelectorAll(".step").forEach((step, i) =>
+    step.classList.toggle("active", i === activeIndex)
+  );
+
+  const prop = properties[activeIndex];
+  if (!prop) return;
+
+  const id = prop.id; // must match <g id="shell">, etc.
+
+  // Fade everything to low opacity
+  svgRoot
+    .selectAll("g")
+    .transition()
+    .duration(500)
+    .style("opacity", 0.15);
+
+  // Show current property group fully visible
+  svgRoot
+    .select(`#${id}`)
+    .transition()
+    .duration(500)
+    .style("opacity", prop.opacity != null ? prop.opacity : 1);
+}
+```
+
+This function is the **core controller** of the entire scrollytelling visualization.  
+It is called every time a scroll “step” becomes active and it synchronizes:
+
+- the narrative cards on the left,
+- and the SVG layers on the right.
+
+#### 1. Guard clause
+
+```js
+if (!svgRoot) return;
+```
+
+Because the SVG is loaded asynchronously, this prevents errors if the function is triggered before the SVG is ready.
+
+#### 2. Highlighting the active narrative step
+
+```js
+document.querySelectorAll(".step").forEach((step, i) =>
+  step.classList.toggle("active", i === activeIndex)
+);
+```
+
+- Iterates over all step cards.
+- Adds the class `.active` only to the card whose index matches `activeIndex`.
+- This creates the visual “current step” highlight.
+
+#### 3. Selecting the active data object
+
+```js
+const prop = properties[activeIndex];
+if (!prop) return;
+```
+
+- Retrieves the data object that corresponds to the active step.
+- If it doesn’t exist, the function stops safely.
+
+#### 4. Mapping data → SVG layer
+
+```js
+const id = prop.id;
+```
+
+Each `id` value (from JSON) must match a `<g id="...">` group inside the SVG.  
+This is the **link between data and graphic structure**.
+
+#### 5. Resetting the visual state
+
+```js
+svgRoot.selectAll("g")
+  .transition()
+  .duration(500)
+  .style("opacity", 0.15);
+```
+
+All SVG groups are faded to a low baseline opacity, creating a neutral background state.
+
+#### 6. Revealing the active layer
+
+```js
+svgRoot.select(`#${id}`)
+  .transition()
+  .duration(500)
+  .style("opacity", prop.opacity != null ? prop.opacity : 1);
+```
+
+The SVG group corresponding to the active step is animated back to full (or configured) visibility.  
+This produces the **feature‑by‑feature reveal effect**.
 
 ## How to run it locally
 
@@ -246,3 +373,4 @@ Then open the local URL (e.g. `http://127.0.0.1:8080/lesson-14-svg-as-data/`).
 - How to connect scroll position to visualization state
 - How to build a scrollytelling layout with a sticky visualization panel
 
+---
