@@ -58,8 +58,13 @@ The course is organized in lessons from simple to advanced topics:
 | **[Lesson 8](./08-svg-1/README.md)** | Sorting + circle charts |
 | **[Lesson 9](./09-svg-2/README.md)** | Custom shapes with SVG paths (stars) |
 | **[Lesson 10](./10-svg-3/README.md)** | Multiple shape generators by category |
-| **[Lesson 11](./11-svg-4/README.md)** | TBD |
-| *(More lessons will be added)* | |
+| **[Lesson 11](./11-svg-4/README.md)** | Custom SVG |
+| **[Lesson 12](./12-colors/)** | Using Colors Dynamically in a D3 Bar Chart |
+| **[Lesson 13](./13-bubble-map/)** | Bubble Map |
+| **[Lesson 14](./14-svg-as-data-01/)** | SVG as Data (Part 1) |
+| **[Lesson 15](./15-svg-as-data-02/)** | SVG as Data (Part 2) |
+| **[Lesson 16](./16-pinned-scrollytelling/)** | Pinned Scrollytelling |
+
 
 Each lesson includes:
 
