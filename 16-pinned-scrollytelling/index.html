@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Lesson 16 — Pinned Scrollytelling Component (SVG as Data)</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pinned-component.css" />
+
+  <!-- D3.js from CDN -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <main class="container">
+
+      <!-- SECTION 1: Intro -->
+      <header class="page-header" aria-label="Introduction">
+        <figure class="page-header-image">
+          <img src="img/eggs.jpg" alt="Some eggs" />
+        </figure>
+        <h1 class="page-header-title">Some eggs are <em>bigger</em> than others</h1>
+      </header>
+
+      <!-- SECTION 2: Context / Bridge -->
+      <article class="page-section section-bridge" aria-label="Context">
+        <h2 class="page-section-title">Not in size, but in attitude.</h2>
+        <p class="page-section-text">Open any carton and you will feel it: one egg sits there with quiet confidence, fully aware it will be chosen first, cracked with higher expectations, and blamed if brunch goes wrong. <strong>You are not here for any egg</strong>. <strong>You are here for that egg</strong>.</p>
+      </article>
+
+      <!-- SECTION 3: Pinned component -->
+      <section class="page-section section-pinned" aria-label="Pinned scrollytelling component">
+        <div class="pinned">
+
+          <!-- Left: narrative / scroll steps -->
+          <section class="scrolly" aria-label="Narrative steps">
+            <div class="scrolly-inner">
+              <h2 class="page-section-title">The Egg that knows itself</h2>
+              <p class="lead">Scroll to reveal its personality.</p>
+            </div>
+
+            <!-- Steps will be generated from JSON into this container -->
+            <div id="steps"></div>
+          </section>
+
+          <!-- Right: SVG visualization (pinned) -->
+          <section class="viz-panel" aria-label="Visualization panel">
+            <div id="svg-viz" aria-label="Scroll visualization area"></div>
+          </section>
+
+        </div>
+      </section>
+
+      <!-- SECTION 4: Outro -->
+      <article class="page-section section-outro" aria-label="Outro">
+        <h2 class="page-section-title">Not bigger in centimeters.<br/>Bigger in destiny.</h2>
+        <p class="page-section-text">This egg doesn’t roll — it arrives. It occupies space emotionally, casts a soft shadow on neighboring eggs, and somehow makes breakfast feel more important than it actually is.</p>
+        <p class="page-section-text"><strong>It is the egg your pan remembers.</strong></p>
+      </article>
+
+    </main>
+  
+
+  <!-- Main script -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>
