@@ -7,6 +7,7 @@ let properties = [];
 let svgRoot = null;
 let currentActiveIndex = 0;
 let tooltipEl = null;
+//let msg = document.getElementById("msg");
 
 document.addEventListener("DOMContentLoaded", () => {
   d3.json("data/egg-data.json")
@@ -53,6 +54,8 @@ function buildSteps(props) {
     step.appendChild(body);
 
     stepsContainer.appendChild(step);
+
+    
   });
 }
 
@@ -116,11 +119,15 @@ function setupScrollHandling() {
 
 function clearActiveStep() {
   currentActiveIndex = -1;
-
+  //console.log("clearActiveStep");
+  //msg.style.display = "block";
+  
   // Remove active card highlight
   document.querySelectorAll(".step").forEach(step =>
     step.classList.remove("active")
   );
+
+  
 
   // Fade all SVG layers back to baseline
   if (svgRoot) {
@@ -142,6 +149,9 @@ function setActiveStep(activeIndex) {
   if (!svgRoot) return;
 
   currentActiveIndex = activeIndex;
+
+  // Hide the message when scrolling begins
+  //msg.style.display = "none";
 
   // Highlight active step card
   document.querySelectorAll(".step").forEach((step, i) =>
